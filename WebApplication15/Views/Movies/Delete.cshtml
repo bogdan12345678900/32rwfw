@@ -1,0 +1,39 @@
+@model WebApplication15.Models.Movie
+
+@{
+    ViewData["Title"] = "Видалення фільму";
+}
+
+<div class="row justify-content-center my-4">
+    <div class="col-md-6">
+        <div class="card border-danger shadow-sm">
+            <div class="card-header bg-danger text-white">
+                <h4 class="mb-0">⚠️ Підтвердження видалення</h4>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-danger mb-3">Ви дійсно бажаєте видалити цей фільм?</h5>
+                
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <img src="@Model.PosterUrl" class="img-fluid rounded shadow-sm" alt="@Model.Title">
+                    </div>
+                    <div class="col-md-8">
+                        <h4 class="fw-bold">@Model.Title</h4>
+                        <p class="mb-1"><strong>Рік:</strong> @Model.ReleaseYear</p>
+                        <p class="mb-1"><strong>Режисер:</strong> @Model.Director</p>
+                        <p class="mb-1"><strong>Жанр:</strong> @Model.Genre</p>
+                        <p class="text-muted mt-2">@Model.Description</p>
+                    </div>
+                </div>
+
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="d-flex justify-content-between mt-4">
+                        <a asp-action="Index" class="btn btn-secondary">Скасувати</a>
+                        <button type="submit" class="btn btn-danger px-4">Так, видалити</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

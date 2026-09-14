@@ -1,0 +1,58 @@
+@model WebApplication15.Models.MovieFormViewModel
+
+@{
+    ViewData["Title"] = "Додати фільм";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2 class="mb-4">🎬 Додати новий фільм</h2>
+        
+        <form asp-action="Create" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label">Назва фільму</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label asp-for="Director" class="form-label">Режисер</label>
+                    <input asp-for="Director" class="form-control" />
+                    <span asp-validation-for="Director" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Genre" class="form-label">Жанр</label>
+                    <input asp-for="Genre" class="form-control" />
+                    <span asp-validation-for="Genre" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="ReleaseYear" class="form-label">Рік випуску</label>
+                    <input asp-for="ReleaseYear" class="form-control" />
+                    <span asp-validation-for="ReleaseYear" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label">Опис</label>
+                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="PosterFile" class="form-label">Завантажити постер з пристрою</label>
+                <input asp-for="PosterFile" type="file" class="form-control" accept="image/*" />
+                <span asp-validation-for="PosterFile" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success">Зберегти</button>
+            <a asp-action="Index" class="btn btn-secondary">Скасувати</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

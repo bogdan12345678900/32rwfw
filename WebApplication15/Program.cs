@@ -28,21 +28,22 @@ using (var scope = app.Services.CreateScope())
     dbContext.Database.EnsureCreated();
 }
 
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
+app.UseStatusCodePagesWithReExecute("/Home/NotFound404");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Movies}/{action=Index}/{id?}");
 
 app.Run();
