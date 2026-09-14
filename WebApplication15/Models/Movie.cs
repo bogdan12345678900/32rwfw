@@ -1,4 +1,4 @@
-namespace MovieCatalog.Models
+namespace WebApplication15.Models
 {
     public class Movie
     {

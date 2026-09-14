@@ -1,7 +1,7 @@
-using MovieCatalog.Data;
-using MovieCatalog.Models;
+using WebApplication15.Data;
+using WebApplication15.Models;
 
-namespace MovieCatalog.Services
+namespace WebApplication15.Services
 {
     public class SqliteMovieService : IMovieService
     {

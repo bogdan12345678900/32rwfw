@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using MovieCatalog.Data;
-using MovieCatalog.Services;
+using WebApplication15.Data;
+using WebApplication15.Services; 
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +14,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Додаємо сервіси MVC
 builder.Services.AddControllersWithViews();
 
-// Замінюємо InMemoryMovieService на SqliteMovieService
+
+// Реєстрація IOmdbService у DI-контейнері
 builder.Services.AddScoped<IMovieService, SqliteMovieService>();
 
 var app = builder.Build();
@@ -23,7 +24,8 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    dbContext.Database.Migrate();
+    // Створює БД та таблиці за наявною моделлю, ігноруючи міграції
+    dbContext.Database.EnsureCreated();
 }
 
 if (!app.Environment.IsDevelopment())
@@ -31,7 +33,6 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

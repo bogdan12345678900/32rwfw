@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using MovieCatalog.Models;
+using WebApplication15.Models;
 
-namespace MovieCatalog.Data
+namespace WebApplication15.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -16,7 +16,6 @@ namespace MovieCatalog.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Сидинг (заповнення) початковими даними при створенні бази даних
             modelBuilder.Entity<Movie>().HasData(
                 new Movie
                 {
@@ -46,7 +45,7 @@ namespace MovieCatalog.Data
                     Genre = "Наукова фантастика, Екшн",
                     ReleaseYear = 2010,
                     PosterUrl = "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_FMjpg_UX1000_.jpg",
-                    Description = "Злодій, який викрадає корпоративні таємниці за допомогою технології обміну снами, отримує обернене завдання: занурити ідею в розум CEO."
+                    Description = "Злодій, який викрадає корпоративні таємниці за допомогою технології обміну снами, отримує обернене завдання."
                 },
                 new Movie
                 {
@@ -56,7 +55,7 @@ namespace MovieCatalog.Data
                     Genre = "Наукова фантастика, Драма",
                     ReleaseYear = 2014,
                     PosterUrl = "https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-                    Description = "Колектив дослідників використовує нововиявлений червоточину, щоб подолати обмеження людських космічних польотів та знайти нову планету для людства."
+                    Description = "Колектив дослідників використовує нововиявлену червоточину, щоб подолати обмеження людських космічних польотів."
                 },
                 new Movie
                 {
@@ -66,7 +65,7 @@ namespace MovieCatalog.Data
                     Genre = "Кримінал, Драма",
                     ReleaseYear = 1994,
                     PosterUrl = "https://m.media-amazon.com/images/M/MV5BYTViYTE3ZGQtNDBlMC00MGUyLThhNWUtZGRjZmVkM2Y5OWNiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-                    Description = "Життя двох бандитів, дружини гангстера, боксера та пари грабіжників переплітаються в чотирьох історіях про сарказм та спокуту."
+                    Description = "Життя двох бандитів, дружини гангстера, боксера та пари грабіжників переплітаються в чотирьох історіях."
                 },
                 new Movie
                 {
@@ -76,7 +75,7 @@ namespace MovieCatalog.Data
                     Genre = "Наукова фантастика, Екшн",
                     ReleaseYear = 1999,
                     PosterUrl = "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2N2VhMDY3M2NjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-                    Description = "Комп'ютерний хакер дізнається від таємничих заколотників про справжню природу своєї реальності та свою роль у боротьбі проти її контролерів."
+                    Description = "Комп'ютерний хакер дізнається від таємничих заколотників про справжню природу своєї реальності."
                 }
             );
         }

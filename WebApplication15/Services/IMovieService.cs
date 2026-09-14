@@ -1,6 +1,6 @@
-using MovieCatalog.Models;
+using WebApplication15.Models;
 
-namespace MovieCatalog.Services
+namespace WebApplication15.Services
 {
     public interface IMovieService
     {

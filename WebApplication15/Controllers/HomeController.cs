@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using MovieCatalog.Services;
+using WebApplication15.Services; // Переконайтеся, що назва збігається
 
-namespace MovieCatalog.Controllers
+namespace MovieSearchApp.Controllers
 {
     public class HomeController : Controller
     {
